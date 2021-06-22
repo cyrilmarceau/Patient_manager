@@ -1,0 +1,41 @@
+# Create a .env file and set mode
+# MODE=production | development
+version: "3.8"
+services:
+  database:
+    container_name: patient-manager-database
+    restart: always
+    image: mariadb:10.4-focal
+    environment:
+      - MYSQL_USER='${DB_USER}'
+      - MYSQL_PASSWORD='${DB_PASSWORD}'
+      - MYSQL_DATABASE='${DB_NAME}'
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 3309:3306
+  api:
+    container_name: patient-manager-api
+    build: ./api
+    command: python manage.py runserver 0.0.0.0:8081
+    volumes:
+      - ./api:/code
+      - ./common:/common
+    ports:
+      - 8081:8081
+    depends_on:
+      - database
+    environment:
+      - DJANGO_MODE=${MODE}
+  admin:
+    container_name: patient-manager-admin
+    build: ./admin
+    command: npm run dev -- -p 8082
+    volumes:
+      - ./admin:/code
+      - ./common:/common
+    ports:
+      - 8082:8082
+    depends_on:
+      - api
+    environment:
+      NODE_ENV: ${MODE}
