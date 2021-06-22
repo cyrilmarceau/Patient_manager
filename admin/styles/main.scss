@@ -1,0 +1,67 @@
+@import '~/styles/parts/variables';
+@import '~/styles/parts/dependencies';
+
+// Components
+@import '~/styles/components/layout/sider';
+@import '~/styles/components/layout/layout';
+
+// Utils
+@import '~/styles/components/utils/button';
+
+// Pages
+@import '~/styles/components/users/create';
+
+* {
+    font-family: $font-family;
+}
+
+body {
+    font-size: 16px !important;
+}
+
+p,
+a,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+td,
+label {
+    color: $color_font;
+    font-size: 16px;
+}
+
+h1,
+p {
+    margin-bottom: 0 !important;
+}
+
+button {
+    margin-bottom: 0 !important;
+}
+
+// Input antd border and hover custom style
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-number-focused {
+    border-color: $color_primary;
+    box-shadow: 0 0 0 2px rgba($color_primary, 20%);
+}
+
+.ant-input,
+.ant-input-number,
+.ant-input-password {
+    border: 1px solid $color_primary;
+    &:hover {
+        border: 1px solid $color_primary;
+    }
+}
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border: 1px solid $color_primary;
+}
+label {
+    font-size: 16px !important;
+}

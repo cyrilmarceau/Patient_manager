@@ -1,0 +1,18 @@
+.ant-layout {
+    background-color: $color_white;
+    height: 100vh;
+
+    aside {
+        .trigger__btn {
+            height: 60px;
+            color: $color_white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+            background: $color_secondary;
+        }
+    }
+}

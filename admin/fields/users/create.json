@@ -1,0 +1,72 @@
+[
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "lastname",
+        "label": "Nom",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ nom" }]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "firstname",
+        "label": "Prénom",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ prénom" }]
+    },
+    {
+        "type": "number",
+        "displayLabel": true,
+        "key": "age",
+        "label": "Age",
+        "min": 0,
+        "max": 120,
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ age" }]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "email",
+        "label": "E-mail",
+        "rules": [
+            { "type": "email", "message": "Le champs e-mail n'est pas valide" },
+            { "required": true, "message": "Veuillez remplir le champ e-mail" }
+        ]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "city",
+        "label": "Ville",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ ville" }]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "address",
+        "label": "Adresse",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ adresse" }]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "zipcode",
+        "label": "Code postal",
+        "min": 0,
+        "max": 100000,
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ code postal" }]
+    },
+    {
+        "type": "text",
+        "displayLabel": true,
+        "key": "phone",
+        "label": "Téléphone",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ tél" }]
+    },
+    {
+        "type": "password",
+        "displayLabel": true,
+        "key": "password",
+        "label": "Mot de passe",
+        "rules": [{ "required": true, "message": "Veuillez remplir le champ mot de passe" }]
+    }
+]

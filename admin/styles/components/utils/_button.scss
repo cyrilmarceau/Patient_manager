@@ -1,0 +1,137 @@
+// /* Buttons
+// ----------------------------------------------------------------------- */
+.ant-btn {
+    font-weight: normal;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    height: auto;
+
+    .fa-chevron-down {
+        font-size: 0.85em;
+        margin-right: 0;
+    }
+    .FaIcon {
+        font-size: 18px;
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+    //     // Styles
+    &.ant-btn-primary {
+        background-color: $color_primary;
+        border-color: $color_primary;
+
+        &:hover,
+        &:focus {
+            background-color: lighten($color_primary, 8%);
+            border-color: lighten($color_primary, 8%);
+        }
+
+        &.ant-btn-background-ghost {
+            &:hover,
+            &:focus {
+                background-color: $color_primary !important;
+                color: $color_white;
+            }
+        }
+    }
+
+    &.ant-btn-secondary {
+        background-color: $color_secondary;
+        border-color: $color_secondary;
+        color: $color_white;
+
+        &:hover,
+        &:focus {
+            background-color: lighten($color_secondary, 5%);
+            border-color: lighten($color_secondary, 5%);
+        }
+
+        &.ant-btn-background-ghost {
+            color: $color_font;
+            &:hover,
+            &:focus {
+                background-color: $color_secondary !important;
+                color: $color_font;
+            }
+        }
+    }
+
+    // &.ant-btn-grey {
+    //     background-color: $background_color;
+    //     border-color: $background_color;
+    //     color: $color_black;
+
+    //     &:hover,
+    //     &:focus {
+    //         background-color: lighten($background_color, 5%);
+    //         border-color: lighten($background_color, 5%);
+    //     }
+
+    //     &.ant-btn-background-ghost {
+    //         color: $color_font;
+    //         &:hover,
+    //         &:focus {
+    //             background-color: $background_color !important;
+    //             color: $color_font;
+    //         }
+    //     }
+    // }
+
+    //     // Sizes
+    &.ant-btn-sm {
+        padding: 0px 10px;
+        border-radius: 12px;
+
+        .FaIcon {
+            font-size: 13px;
+        }
+    }
+    &.ke-btn-xl {
+        padding: 8px 35px;
+        border-radius: 30px;
+        font-size: 25px;
+    }
+
+    // Shape
+    &.ant-btn-icon-only {
+        padding: 0;
+        .FaIcon {
+            margin: 0;
+        }
+    }
+
+    // /* Buttons group
+    // ----------------------------------------------------------------------- */
+    .ant-btn-group {
+        & > .ant-btn,
+        & > span {
+            &:first-child:not(:last-child) {
+                &,
+                & > .ant-btn {
+                    border-top-left-radius: 16px;
+                    border-bottom-left-radius: 16px;
+                    margin-right: 0;
+                    border-right: none;
+                }
+            }
+            &:last-child:not(:first-child) {
+                &,
+                & > .ant-btn {
+                    border-top-right-radius: 16px;
+                    border-bottom-right-radius: 16px;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .ant-btn-sm {
+            padding: 0 7px;
+        }
+    }
+}

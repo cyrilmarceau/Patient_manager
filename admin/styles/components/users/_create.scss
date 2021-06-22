@@ -1,0 +1,18 @@
+.pm-form-create-user {
+    height: 100%;
+
+    .pm-form-builder {
+        &.create-user {
+            border-right: 2px solid $color_primary;
+            .ant-form-item {
+                flex-direction: column;
+                &:first-child {
+                    padding-top: 25px;
+                }
+                .ant-form-item-label {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
