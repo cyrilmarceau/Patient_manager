@@ -1,14 +1,12 @@
 from rest_framework import serializers
 from core import models
 
-
 class UserSerializer(serializers.ModelSerializer):
     """Serialize a user profile object"""
 
     class Meta:
         model = models.User
-        fields = ('id', 'email', 'firstname', 'lastname', 'age', 'city', 'address', 'zipcode', 'phone', 'created_at',
-                  'updated_at', 'password')
+        fields = ('id', 'email', 'firstname', 'lastname', 'age', 'city', 'address', 'zipcode', 'phone', 'created_at', 'updated_at', 'password')
         read_only_fields = ('created_at', 'updated_at')
         extra_kwargs = {
             'password': {
