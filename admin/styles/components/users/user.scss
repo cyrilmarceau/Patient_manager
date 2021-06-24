@@ -1,0 +1,21 @@
+.aside-col{
+    .aside-col__updated_at,
+    .aside-col__created_at{
+        display: flex;
+        align-items: center;
+
+        .aside-col__updated_at__content-title,
+        .aside-col__created_at__content-title{
+            font-weight: $font_weight_bold;
+            margin-right: 5px;
+        }
+        .aside-col__updated_at__content-date,
+        .aside-col__created_at__content-date{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .aside-col__updated_at{
+        margin-bottom: 15px;
+    }
+}

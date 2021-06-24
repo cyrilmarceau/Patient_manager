@@ -1,0 +1,37 @@
+[
+    {
+        "type": "text",
+        "displayLabel": false,
+        "key": "lastname",
+        "label": "Nom",
+        "rules": [{ "required": false }]
+    },
+    {
+        "type": "text",
+        "displayLabel": false,
+        "key": "firstname",
+        "label": "Prénom",
+        "rules": [{ "required": false }]
+    },
+    {
+        "type": "text",
+        "displayLabel": false,
+        "key": "email",
+        "label": "Email",
+        "rules": [{ "required": false }]
+    },
+    {
+        "type": "text",
+        "displayLabel": false,
+        "key": "city",
+        "label": "Ville",
+        "rules": [{ "required": false }]
+    },
+    {
+        "type": "text",
+        "displayLabel": false,
+        "key": "zipcode",
+        "label": "Code postal",
+        "rules": [{ "required": false }]
+    }
+]

@@ -60,7 +60,7 @@ const that = {
         return new Promise((resolve, reject) => {
             api.post(url, values)
                 .then((apiResp) => {
-                    let res = apiResp.data
+                    let res = apiResp
                     resolve(res)
                 })
                 .catch((err) => {
@@ -91,7 +91,7 @@ const that = {
         return new Promise((resolve, reject) => {
             api.delete(url, { params: extraParams, data: extraData })
                 .then((apiResp) => {
-                    resolve('ok')
+                    resolve(apiResp)
                 })
                 .catch((err) => {
                     message.error('Suppression impossible.')
@@ -100,16 +100,51 @@ const that = {
         })
     },
 
+    getUsers(params = {}) {
+        return that.showRoute(`${PUBLIC_ROUTE_PRE}/users/`, params)
+    },
+    getUser(id) {
+        return that.listRoute(`${PUBLIC_ROUTE_PRE}/users/${id}/`)
+    },
     createUser(values = {}) {
         return that.createRoute(`${PUBLIC_ROUTE_PRE}/users/`, values)
+    },
+    editUser(id, values = {}) {
+        return that.updateRoute(`${PUBLIC_ROUTE_PRE}/users/${id}/`, values)
+    },
+    deleteUser(id) {
+        return that.deleteRoute(`${PUBLIC_ROUTE_PRE}/users/${id}`)
     },
 
     convertDate(date, splitVal = '' || null, totalDate = false) {
         let res = new Date(date).toLocaleString()
-        totalDate == false && splitVal !== null
+        totalDate === false && splitVal !== null
             ? (res = res.split(splitVal)[0])
             : (res = res.replace(',', ' -'))
         return res
+    },
+
+    query: {
+        search(params, fieldName = '', value = '' || []) {
+            if (!_.isEmpty(value)) {
+                params[fieldName] = value
+            }
+
+            return params
+        },
+        ordering(params, sorter) {
+            if (!_.isEmpty(sorter.order)) {
+                let sortVal = sorter.field
+
+                if (sorter.order == 'descend') {
+                    sortVal = '-' + sortVal
+                }
+
+                params.ordering = sortVal
+            }
+
+            return params
+        },
     },
 }
 

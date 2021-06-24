@@ -16,6 +16,7 @@ function FormNumberInput({ field }) {
                 min={field.min}
                 max={field.max}
                 placeholder={field.label}
+                type={field.type}
             />
         </Form.Item>
     )

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { Row, Col, Form, Button } from 'antd'
-
-import { ArrowLeftOutlined } from '@ant-design/icons'
+import { Row, Col, Form, Button, message } from 'antd'
 
 import fields from '~/fields/users/create.json'
 
 import FormBuilder from '~/components/formBuilder/main'
+
+import Header from '~/components/layout/Header'
 
 import api from '~/libs/api'
 
@@ -18,11 +18,20 @@ const create = () => {
 
     const router = useRouter()
 
-    const [state, setState] = useState({})
+    const [state, setState] = useState({
+        success: null,
+    })
 
     const createUser = (values) => {
-        console.log(values)
-        api.createUser(values)
+        api.createUser(values).then((res) => {
+            console.log(res)
+            if (res.statusText === 'Created') {
+                form.resetFields()
+                setState({ ...state, success: true })
+            } else {
+                setState({ ...state, success: false })
+            }
+        })
     }
 
     const createUserChange = (changedValues, allValues) => {
@@ -30,43 +39,47 @@ const create = () => {
         setState({ ...state, allValues })
     }
 
-    return (
-        <Form
-            form={form}
-            ref={formRef}
-            onFinish={createUser}
-            onValuesChange={createUserChange}
-            className="pm-form-create-user"
-        >
-            <Row>
-                <Col span={24} className="title-page">
-                    <Button
-                        type="secondary"
-                        icon={<ArrowLeftOutlined />}
-                        shape="circle"
-                        size="large"
-                        onClick={() => {
-                            router.push({ pathname: '/users' })
-                        }}
-                        className="title-page__back-btn"
-                    />
-                    <h1>Crée un patient</h1>
-                </Col>
+    const success = () => {
+        message
+            .success("L'utilisateur a bien été crée", 2)
+            .then(() => {
+                setState({ ...state, success: null })
+            })
+            .then(() => {
+                router.push('/users')
+            })
+    }
 
-                <div className="pm-container">
-                    <Col xs={24} md={20} lg={16}>
-                        <FormBuilder fieldsList={fields} className="create-user padding-right" />
-                    </Col>
-                    <Col lg={8} className="aside-col">
-                        <Form.Item>
-                            <Button htmlType="submit" type="secondary">
-                                Crée un utilisateur
-                            </Button>
-                        </Form.Item>
-                    </Col>
-                </div>
-            </Row>
-        </Form>
+    return (
+        <>
+            {state.success && success()}
+            <Header title={'Crée un patient'} backPath={'/users'} />
+            <div className="pm-container">
+                <Form
+                    form={form}
+                    ref={formRef}
+                    onFinish={createUser}
+                    onValuesChange={createUserChange}
+                    className="pm-form-create-user"
+                >
+                    <Row style={{ height: '100%' }}>
+                        <Col xs={24} md={20} lg={16} style={{ height: '100%' }}>
+                            <FormBuilder
+                                fieldsList={fields}
+                                className="create-user padding-right"
+                            />
+                        </Col>
+                        <Col lg={8} className="aside-col">
+                            <Form.Item>
+                                <Button htmlType="submit" type="secondary">
+                                    Crée un utilisateur
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                    </Row>
+                </Form>
+            </div>
+        </>
     )
 }
 

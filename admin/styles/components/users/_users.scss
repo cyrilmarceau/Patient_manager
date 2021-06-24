@@ -1,0 +1,37 @@
+.pm-form-list-user {
+    display: flex;
+    margin: 25px 0;
+    .lists-user__fields {
+        display: flex;
+        .ant-form-item {
+            margin: 0 5px;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+
+.pm-table-list-users {
+    .ant-table {
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+    .lists-user__icon {
+        display: flex;
+
+        .ant-icon-edit {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .ant-icon-delete {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}

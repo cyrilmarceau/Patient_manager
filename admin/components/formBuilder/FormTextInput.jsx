@@ -19,7 +19,7 @@ function FormTextInput({ field }) {
             rules={field.rules}
             className="pm-form-text-input"
         >
-            <Input placeholder={field.displayLabel && field.label} />
+            <Input placeholder={field.label} />
         </Form.Item>
     )
 }
